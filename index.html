@@ -411,17 +411,29 @@ function resetFlow() {
   selectedEmotion = "";
 }
     function enterApp() {
-      document.getElementById("landing").style.display = "none";
-      document.getElementById("experience").style.display = "block";
-    }
+  localStorage.setItem("heartfeelEntered", "yes");
+
+  document.getElementById("landing").style.display = "none";
+  document.getElementById("experience").style.display = "block";
+}
 
     function goBack() {
-      document.getElementById("landing").style.display = "block";
-      document.getElementById("experience").style.display = "none";
-    }
+  localStorage.removeItem("heartfeelEntered");
 
-    
-    
+  document.getElementById("landing").style.display = "block";
+  document.getElementById("experience").style.display = "none";
+}
+
+// auto open experience if already entered before
+window.addEventListener("load", () => {
+  const entered = localStorage.getItem("heartfeelEntered");
+
+  if (entered === "yes") {
+    document.getElementById("landing").style.display = "none";
+    document.getElementById("experience").style.display = "block";
+  }
+});
+   
 
     
 
