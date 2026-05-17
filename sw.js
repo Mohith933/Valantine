@@ -1,4 +1,4 @@
-const CACHE_NAME = "heartfeel-v1";
+const CACHE_NAME = "heartfeel-v2";
 
 const urlsToCache = [
   "/",
